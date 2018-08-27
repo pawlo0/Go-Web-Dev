@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>Table</h1>
+
+<Table>
+{{range .}}
+    <tr>
+        <td>{{.Date}}</td>
+        <td>{{.Open}}</td>
+        <td>{{.High}}</td>
+        <td>{{.Low}}</td>
+        <td>{{.Close}}</td>
+        <td>{{.Volume}}</td>
+        <td>{{.AdjClose}}</td>
+    </tr>
+{{end}}
+
+</Table>
+
+</body>
+</html>
