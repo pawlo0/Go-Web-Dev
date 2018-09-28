@@ -9,7 +9,7 @@ func main() {
 	http.HandleFunc("/", set)
 	http.HandleFunc("/read", read)
 	http.Handle("/favicon.ico", http.NotFoundHandler())
-	http.ListenAndServe("8080", nil)
+	http.ListenAndServe(":8080", nil)
 }
 
 func set(w http.ResponseWriter, req *http.Request) {
@@ -17,8 +17,8 @@ func set(w http.ResponseWriter, req *http.Request) {
 		Name:  "my-cookie",
 		Value: "some value",
 	})
-	fmt.Println(w, "COOKIE WRITTEN - CHECK YOUR BROWSER")
-	fmt.Println(w, "in chrome go to: dev tools / application / cookies")
+	fmt.Fprintln(w, "COOKIE WRITTEN - CHECK YOUR BROWSER")
+	fmt.Fprintln(w, "in chrome go to: dev tools / application / cookies")
 }
 
 func read(w http.ResponseWriter, req *http.Request) {
@@ -29,5 +29,5 @@ func read(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	fmt.Fprintln(w, "Your Cookie:", c)
+	fmt.Fprintln(w, "YOUR COOKIE:", c)
 }
